@@ -40,7 +40,7 @@ long long		ft_word_count(char *str, char c)
 		}
 		i++;
 	}
-	return (w_count - 1);
+	return (w_count);
 }
 
 char		*ft_strncpy(char *dest, char *src, size_t len)
@@ -79,6 +79,8 @@ char			**ft_split(char *str, char c)
 		if (ft_strlen(str_copy) > ft_strlen(str))
 		{	
 			arr_of_strs[i] = malloc((str - str_copy + 1) * sizeof(char));
+			if (!arr_of_strs[i])
+				return (NULL);
 			ft_strncpy(arr_of_strs[i], str_copy , str - str_copy);
 			i++;
 		}
@@ -88,32 +90,31 @@ char			**ft_split(char *str, char c)
 	return (arr_of_strs);
 }
 
-// int main() {
+int main() {
    
-// //    printf("TESTING OUT SPLIT\n");
+//    printf("TESTING OUT SPLIT\n");
 
-// // 	char string1[50] = "Hello beautiful amazing world";
-// // 	char *charset;
-// // 	charset = " ";
+// 	char string1[50] = "Hello beautiful amazing world";
+// 	char *charset;
+// 	charset = " ";
 
-// //    ft_split(string1, charset);
+//    ft_split(string1, charset);
 
-// // 	return 0;
-// 	char *s = "      split       ";
-
-// 	char **result = ft_split(s, ' ');
-// 	while (*result)
-// 	{
-// 		// if (strcmp(*result, *expected))
-// 		// {
-// 		// 	exit(TEST_FAILED);
-// 		// }
-// 		printf("%s\n", *result);
-// 		printf("%zu\n", ft_strlen(*result));
-// 		result++;
-// 		// expected++;
-// 	}
-	
-	
 // 	return 0;
-// }
+	char *s = "      split       this for   me  !       ";
+
+	char **result = ft_split(s, 'i');
+	while (*result)
+	{
+		// if (strcmp(*result, *expected))
+		// {
+		// 	exit(TEST_FAILED);
+		// }
+		printf("%s\n", *result);
+		result++;
+		// expected++;
+	}
+	
+	
+	return 0;
+}
