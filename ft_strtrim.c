@@ -12,52 +12,40 @@
 
 #include "libft.h"
 
-char	*ft_strtrim(char const *s1, char const *set)
+int		is_char_set(char c, const char *set)
 {
-	unsigned int i;
-	unsigned int j;
-	unsigned int k;
-	//unsigned int catch;
-	char *trimmed_str;
-
-	trimmed_str = (char *)malloc((ft_strlen(s1) - (ft_strlen(set) * 2)) + 1);
-	if (trimmed_str == NULL)
-		return (NULL); 
-	i = 0;
-	j = 0;
-	k = 0;
-	while(s1[i] != '\0')
+	while (*set)
 	{
-    	if (s1[i] == set[j])
-		{
-    		i++;
-			j++;
-		}
-		trimmed_str[k] = s1[i];
-		i++;
-		k++;
+		if (c == *set)
+			return (1);
+		set++;
 	}
-	// catch = trimmed_str[i];
-	// i = ft_strlen(trimmed_str);
-	// j = ft_strlen(set);
-
-	// while(i > 0)
-	// {
-    // 	if (trimmed_str[i] == set[j])
-	// 	{
-    // 		i--;
-	// 		j--;
-	// 	}
-	// 	k = trimmed_str[i];
-	// 	i--;
-	// }
-	return (trimmed_str);
+	return (0);
 }
 
-int main()
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	char *s1 = "	hey there 	";
-	char *set = "	";
-	printf("%s\n", ft_strtrim(s1, set));
-	return 0;
+	size_t	start;
+	size_t	end;
+	size_t	i;
+	char	*trimmed_str;
+
+	start = 0;
+	end = ft_strlen(s1);
+	while (is_char_set(s1[start], set) && s1[start])
+		start++;
+	while (is_char_set(s1[end - 1], set) && end > start)
+		end--;
+	trimmed_str = (char *)malloc(sizeof(*s1) * (end - start + 1));
+	if (trimmed_str == NULL)
+		return (NULL);
+	i = 0;
+	while (start < end)
+	{
+		trimmed_str[i] = s1[start];
+		start++;
+		i++;
+	}
+	trimmed_str[i] = '\0';
+	return (trimmed_str);
 }
