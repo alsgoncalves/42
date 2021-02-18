@@ -31,6 +31,7 @@ void	*ft_memchr(const void *s, int c, size_t len);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 char	*ft_strchr(const char *s, int c);
 size_t	ft_strlen(const char *s);
+unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size);
 char	*ft_strrchr(const char *s, int c);
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 int		ft_atoi(const char *str);
@@ -52,5 +53,6 @@ void	ft_putendl_fd(char *s, char fd);
 void	ft_putnbr_fd(int n, int fd);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char	*ft_itoa(int n);
+char		*ft_strncpy(char *dest, char *src, size_t len);
 
 #endif
