@@ -30,14 +30,14 @@ long long		ft_word_count(const char *str, char c)
 
 	i = 0;
 	w_count = 0;
-	while (str[i])
+	while (str[i] != 0)
 	{
-		if (!char_is_separator(str[i], c))
-		{
+		while (!char_is_separator(str[i], c))
+			i++;
+		if (!char_is_separator(str[i - 1], c))
 			w_count++;
-			while (str[i] && !char_is_separator(str[i], c))
-				i++;
-		}
+		if (str[i] == 0)
+			return (w_count);
 		i++;
 	}
 	return (w_count);
