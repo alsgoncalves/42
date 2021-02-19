@@ -23,7 +23,7 @@ bool			char_is_separator(char s, char c)
 	return (false);
 }
 
-long long		ft_word_count(char *str, char c)
+long long		ft_word_count(const char *str, char c)
 {
 	long long w_count;
 	long long i;
@@ -43,7 +43,7 @@ long long		ft_word_count(char *str, char c)
 	return (w_count);
 }
 
-char			**ft_split(char *str, char c)
+char			**ft_split(char const *str, char c)
 {
 	int		i;
 	char	**arr_of_strs;
@@ -54,7 +54,7 @@ char			**ft_split(char *str, char c)
 		return (0);
 	while (*str)
 	{
-		str_copy = str;
+		str_copy = (char *)str;
 		while (!char_is_separator(*str, c))
 			str++;
 		if (str_copy != str)
