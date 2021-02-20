@@ -65,7 +65,8 @@ char			**ft_split(char const *str, char c)
 			ft_strlcpy(arr_of_strs[i], str_copy, str - str_copy + 1);
 			i++;
 		}
-		str++;
+		if (*str)
+			str++;
 	}
 	arr_of_strs[i] = 0;
 	return (arr_of_strs);
