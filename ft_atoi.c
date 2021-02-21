@@ -29,22 +29,21 @@ int		ft_atoi(const char *str)
 	result = 0;
 	i = 0;
 	sign = 1;
-	while (str[i] != '\0')
-	{
-		while (ft_isspace(str[i]))
-			i++;
-		if (str[i] == '-' || str[i] == '+')
-		{
-			if (str[i++] == '-')
-				sign *= (-1);
-		}
-		while (str[i] >= '0' && str[i] <= '9')
-		{
-			result = result * 10 + (str[i] - '0');
-			i++;
-		}
-		return (result * sign);
+	while (ft_isspace(str[i]))
 		i++;
+	if (str[i] == '-' || str[i] == '+')
+	{
+		if (str[i++] == '-')
+			sign *= (-1);
 	}
-	return (0);
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		result = result * 10;
+		result += sign * (str[i++] - '0');
+		if (result > 2147483647)
+			return (-1);
+		if (result < -2147483648)
+			return (0);
+	}
+	return (result);
 }
