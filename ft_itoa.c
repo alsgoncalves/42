@@ -17,11 +17,10 @@ int		n_length(int n)
 	int length;
 
 	length = 0;
-	if (n % 10)
+	if (n % 10 >= 0)
 		length++;
 	while (n /= 10)
 		length++;
-	length++;
 	return (length);
 }
 
@@ -37,17 +36,19 @@ char	*ft_print_n(int n)
 		negative += 1;
 		n = -n;
 	}
-	if (!(str = (char *)malloc(negative + n_length(n))))
+	if (!(str = (char *)malloc(negative + n_length(n) + 1)))
 		return (NULL);
-	index = n_length(n) - 1 + negative;
+	index = n_length(n) + negative;
 	str[index--] = '\0';
 	while (n >= 10)
 	{
 		str[index--] = (n % 10) + '0';
 		n /= 10;
 	}
-	n % 10 > 0 ? (str[index--] = n + '0') : n;
-	negative == 1 ? (str[index] = '-') : negative;
+	if (n % 10 >= 0)
+		str[index--] = n + '0';
+	if (negative == 1)
+		str[index] = '-';
 	return (str);
 }
 
