@@ -6,7 +6,7 @@
 /*   By: asobreir <asobreir@42lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/22 18:43:08 by asobreir          #+#    #+#             */
-/*   Updated: 2021/02/22 18:43:52 by asobreir         ###   ########.fr       */
+/*   Updated: 2021/02/26 10:41:57 by asobreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int		ft_lstsize(t_list *lst)
 {
-	int i;
-	t_list *current;
+	int		i;
+	t_list	*current;
 
 	i = 0;
 	current = lst;
@@ -23,6 +23,6 @@ int		ft_lstsize(t_list *lst)
 	{
 		current = current->next;
 		i++;
-	}  
+	}
 	return (i);
 }
