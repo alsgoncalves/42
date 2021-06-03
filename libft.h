@@ -6,7 +6,7 @@
 /*   By: asobreir <asobreir@42lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 16:46:18 by asobreir          #+#    #+#             */
-/*   Updated: 2021/02/26 10:32:06 by asobreir         ###   ########.fr       */
+/*   Updated: 2021/06/03 17:59:24 by asobreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,5 +82,7 @@ void			ft_lstclear(t_list **lst, void (*del)(void *));
 void			ft_lstiter(t_list *lst, void (*f)(void *));
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
 										void (*del)(void *));
+int				ft_str_is_digit(char *str);
+int				ft_strcmp(char *s1, char *s2);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: asobreir <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/13 16:43:30 by asobreir          #+#    #+#              #
-#    Updated: 2021/03/03 11:01:12 by asobreir         ###   ########.fr        #
+#    Updated: 2021/06/03 17:58:45 by asobreir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,6 +46,8 @@ SRCS= ft_atoi.c \
 			ft_substr.c \
 			ft_tolower.c \
 			ft_toupper.c \
+			ft_str_is_digit.c \
+			ft_strcmp.c \
 
 SRCS_B= ft_lstadd_back.c \
 			ft_lstadd_front.c \
